@@ -19,12 +19,9 @@
   },
   "homepage": "https://github.com/Avola/avola-client-npm#readme",
   "devDependencies": {
-    "@types/pluralize": "0.0.28",
     "chai": "^4.1.2",
     "mocha": "^5.2.0",
     "typescript": "^2.9.1"
   },
-  "dependencies": {
-    "pluralize": "^7.0.0"
-  }
+  "dependencies": {}
 }
