@@ -1,10 +1,14 @@
 'use strict';
 var expect = require('chai').expect;
-var index = require('../dist/index.js');
+var AvolaClient = require('../dist/index.js').AvolaClient;
 
-describe('ping function test', () => {
-    it('should return pong', () => {
-        var result = index.ping();
-        expect(result).to.equal('pong');
+describe('settings api test', () => {
+    it('should return settings', () => {
+        var client = new AvolaClient("https://free.api.avo.la");
+
+        client.getSettings().then((settings) => {
+            console.log("settingssss", settings);
+            expect(settings.organisation).to.not.be.null;
+        });
     });
 });
