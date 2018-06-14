@@ -36,11 +36,6 @@ avolaclient.getSettings().then((settings) => {
 ```sh
 Output should be the settings of the Api
 ```
-### AMD
-```javascript
-define(function(require,exports,module){
-  var pluralise = require('mypluralize');
-});
 ```
 ## Test 
 ```sh
