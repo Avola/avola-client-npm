@@ -1,7 +1,13 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/2000px-Npm-logo.svg.png" alt="npm logo" width="150" height="50" />
 
 # avola-client :package: 
-Avola Decision client package to execute and synchronize your decisions with an ease. Also check out our other packages and definitely [read our api documentation](https://docs.avo.la).             
+Avola Decision client package to execute and synchronize your decisions with an ease. This package is for any developer looking for an easy solution to connect Avola Decision to their software. Also check out our other packages and definitely [read our api documentation](https://docs.avo.la) if something is not clear.
+
+## Requirements
+* A valid Avola Decision account - don't have an account? Find out the very basics [by creating a free account](https://free.avo.la)
+* In Avola, you need to create an API account (save the clientid and secret) - For free user check the my account page
+* Your custom company endpoint ex: https://companyxyz.api.avo.la - For free user: https://free.api.avo.la
+* Your token host - you can find this at /api/settings on your custom company api endpoint - For free user it is optional and already defaults to https://free.auth.avo.la
 
 ## Installation 
 ```sh
