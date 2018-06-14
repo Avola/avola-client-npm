@@ -1,4 +1,4 @@
-# avola-client
+# avola-client :sparkler:
 Avola Decision client to execute and synchronize your decisions. NPM version.
 
 ## Installation 
@@ -36,8 +36,23 @@ avolaclient.getSettings().then((settings) => {
 ```sh
 Output should be the settings of the Api
 ```
+
+## Contribute
+Want to contribute to this package?
+1) Clone the repo
+
+2)
+```sh
+npm install
 ```
-## Test 
+3) Edit files in lib/
+
+4) Build
+```sh
+npm run build
+```
+
+### Test & Build
 ```sh
 npm run test
 ```
