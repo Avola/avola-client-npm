@@ -175,8 +175,7 @@ export namespace Avola {
 
         /**
          * Execute a descision service version, this returns all conclusions, from all decisions in the decision service
-         * @param decisionServiceId 
-         * @param version 
+         * @param executionRequest
          */
         executeDecisionServiceVersion(executionRequest: Execution.ApiExecutionRequest): Promise<Execution.ExecutionResult> {
             let url: string;

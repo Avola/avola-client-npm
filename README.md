@@ -13,7 +13,8 @@ bower install avola-client --save
 var avola = require('avola').Avola;
 
 // Create client with base url of the Avola Decision api and your apikey
-var avolaclient = new avola.AvolaClient('https://free.api.avo.la', 'replacewithclientid', 'replacewithclientsecret', 'optionaltokenhost');
+var avolaclient = new avola.AvolaClient('https://free.api.avo.la', 'replacewithclientid', 
+                                               'replacewithclientsecret', 'optionaltokenhost');
 
 client.getSettings().then((settings) => {
   console.log("settings", settings);
@@ -25,7 +26,8 @@ client.getSettings().then((settings) => {
 ```typescript
 import { AvolaClient } from 'avola';
 
-let avolaclient = new Avolaclient('https://free.api.avo.la', 'replacewithclientid', 'replacewithclientsecret', 'optionaltokenhost');
+let avolaclient = new Avolaclient('https://free.api.avo.la', 'replacewithclientid',
+                                              'replacewithclientsecret', 'optionaltokenhost');
 
 avolaclient.getSettings().then((settings) => {
   console.log("settings", settings);
@@ -36,12 +38,21 @@ avolaclient.getSettings().then((settings) => {
 ```sh
 Output should be the settings of the Api
 ```
+### Available methods
 
-## Contribute
+| name          | description   | In Free?  |
+| ------------- |:-------------:| ---------:|
+| getSettings()      | Will return the settings of the API. This describes certain endpoints and info. |  :white_check_mark:    |
+| getDecisionServices(decisionServiceId?: number)      | Will return you the list and details of all decision services and their version without parameters. With decisionServiceId: will return you the versions and details of a specific decision service.      |        |
+| getDecisionServiceVersions(decisionServiceId: number, version: number) | Will return you the details of a specific decision service version.      |        |
+| executeDecisionServiceVersion(executionRequest: Execution.ApiExecutionRequest)      | Execute a descision service version, this returns all conclusions, from all decisions in the decision service. |      |
+| executeDecisionTable(executionRequest: Execution.ApiExecutionRequest)      | Execute a decision table. This function is only available if you are using a Free api client. |  :white_check_mark:    |
+
+## Contribute :star: :star: :star:
 Want to contribute to this package?
 1) Clone the repo
 
-2)
+2) Install dependencies
 ```sh
 npm install
 ```
@@ -51,6 +62,7 @@ npm install
 ```sh
 npm run build
 ```
+5) Create a pull request
 
 ### Test & Build
 ```sh
