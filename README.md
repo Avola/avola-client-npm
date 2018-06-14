@@ -1,5 +1,5 @@
-# avola-client : NPM Version
-Avola Decision client to execute and synchronize your decisions
+# avola-client
+Avola Decision client to execute and synchronize your decisions. NPM version.
 
 ## Installation 
 ```sh
@@ -10,10 +10,10 @@ bower install avola-client --save
 ## Usage
 ### Javascript
 ```javascript
-var AvolaClient = require('avolaclient');
+var avola = require('avola').Avola;
 
 // Create client with base url of the Avola Decision api and your apikey
-var avolaclient = new AvolaClient('https://free.api.avo.la', 'replacewithapikey');
+var avolaclient = new avola.AvolaClient('https://free.api.avo.la', 'replacewithapikey');
 
 client.getSettings().then((settings) => {
   console.log("settings", settings);
@@ -23,7 +23,7 @@ client.getSettings().then((settings) => {
 
 ### TypeScript
 ```typescript
-import { AvolaClient } from 'avolaclient';
+import { AvolaClient } from 'avola';
 
 let avolaclient = new Avolaclient('https://free.api.avo.la', 'replacewithapikey');
 
