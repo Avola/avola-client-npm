@@ -209,7 +209,7 @@ export namespace Avola {
          * Execute a decision table. This function is only available if you are using a Free api client.
          * @param executionRequest 
          */
-        executeDecisionTable(executionRequest: Execution.ApiExecutionRequest): Promise<Execution.ExecutionResult> {
+        executeDecisionFree(executionRequest: Execution.ApiExecutionRequest): Promise<Execution.ExecutionResult> {
             let url: string;
             url = this.baseUrl + "/api/ApiExecution/execute";
 

@@ -7,7 +7,7 @@ Avola Decision client package to execute and synchronize your decisions with an 
 * A valid Avola Decision account - don't have an account? Find out the very basics [by creating a free account](https://free.avo.la)
 * In Avola, you need to create an API account (save the clientid and secret) - For free user check the my account page
 * Your custom company endpoint ex: https://companyxyz.api.avo.la - For free user: https://free.api.avo.la
-* Your token host - you can find this at /api/settings on your custom company api endpoint - For free user it is optional and already defaults to https://free.auth.avo.la
+* Your token host: you can find this at /api/settings on your custom company api endpoint - For free user it is optional and already defaults to https://free.auth.avo.la
 
 ## Installation 
 ```sh
@@ -54,7 +54,7 @@ Output should be the settings of the Api
 | getDecisionServices(decisionServiceId?: number)      | Will return you the list and details of all decision services and their version without parameters. With decisionServiceId: will return you the versions and details of a specific decision service.      |        |
 | getDecisionServiceVersions(decisionServiceId: number, version: number) | Will return you the details of a specific decision service version.      |        |
 | executeDecisionServiceVersion(executionRequest: Execution.ApiExecutionRequest)      | Execute a descision service version, this returns all conclusions, from all decisions in the decision service. |      |
-| executeDecisionTable(executionRequest: Execution.ApiExecutionRequest)      | Execute a decision table. This function is only available if you are using a Free api client. |  :white_check_mark:    |
+| executeDecisionFree(executionRequest: Execution.ApiExecutionRequest)      | Execute a decision. This function is only available if you are a Free user and doesn't support the full power of versioned execution. |  :white_check_mark:    |
 
 ## Contribute :star: :star: :star:
 Want to contribute to this package?
