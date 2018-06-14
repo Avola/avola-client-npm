@@ -1,8 +1,7 @@
-![alt text][logo]
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/2000px-Npm-logo.svg.png" alt="npm logo" width="150" height="50" />
+
 # avola-client :package: 
 Avola Decision client to execute and synchronize your decisions. NPM version.             
-
-[logo]: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJcAAAA6CAMAAACKwzt7AAAAY1BMVEX////LODfIJSTKMC/03d3ZennJKinuysrioJ/x09PIIR/99/fz2dnLNjXkpKT68PDqvb324+PUZGTkqKfQVVTHFxXpt7fnsbDbg4Pdiorhm5vsxMPWb27OTEvSXFvekJDFBwJ4Cq5MAAABWklEQVRoge3ZYW+CQAwG4OOqh6KgzIFuDsf//5VLdq3LSs6WzTFi+n4TX8oDiQcRl80z7r8BiZhrXMw1LrN3BS9F3yzVTZ7AXeFYL4QgLLRScwsR5vfiTJb6GJjL505Kgc21VNyE6CoW4kye3E/h2prLXOa6jyvfx1x/7EnXmTXTLiy2NTVb3LDRuy7F5wrcrERXh81KdPnY7Fv8vOvjMt8TVOF6isMDHS3tesbmQXRldCMgFzKKMS4wl7nMZS5zmctcj+fSP+dM69ph6OFuLi4ec5nLXL90DY5GLlot9S6X/J+JXGc6A+5acxecVt9TdXEGvFW4BVKuA9v1FZvwwmeiC5YVa75j4wTMlUFgKfkXySvbebbr6JnXDcT6wf++yfvjXWMuc/2pC9QRXaV+lhi3VAdhg/cKNa505UU/Sww/9xtp8IIN3q7g5fq6M0ybJrsdc5nLXA/q+gBMIDrCDomweAAAAABJRU5ErkJggg== "Npm logo"
 
 ## Installation 
 ```sh
