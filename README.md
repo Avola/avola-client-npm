@@ -1,4 +1,4 @@
-# avola-client :sparkler:
+# avola-client :package:
 Avola Decision client to execute and synchronize your decisions. NPM version.
 
 ## Installation 
