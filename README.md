@@ -1,4 +1,4 @@
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/2000px-Npm-logo.svg.png" alt="npm logo" width="150" height="50" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/2000px-Npm-logo.svg.png" alt="npm logo" width="150" height="50" /> [![Build Status](https://travis-ci.org/Avola/avola-client-npm.svg?branch=master)](https://travis-ci.org/Avola/avola-client-npm)
 
 # avola-client :package: 
 Avola Decision client package to execute and synchronize your decisions with an ease. This package is for any developer looking for an easy solution to connect Avola Decision to their software. Also check out our other packages and definitely [read our api documentation](https://docs.avo.la) if something is not clear.
