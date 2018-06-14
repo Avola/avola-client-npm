@@ -1,7 +1,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/2000px-Npm-logo.svg.png" alt="npm logo" width="150" height="50" />
 
 # avola-client :package: 
-Avola Decision client to execute and synchronize your decisions. NPM version.             
+Avola Decision client package to execute and synchronize your decisions with an ease. Also check out our other packages and definitely [read our api documentation](https://docs.avo.la).             
 
 ## Installation 
 ```sh
