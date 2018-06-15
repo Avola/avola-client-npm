@@ -7,14 +7,22 @@ export declare namespace Avola {
      */
     class AvolaClient {
         /**
-         * The apiKey retrieved from the myaccount page in Avola Decision
+         * The credentials include: clientId, clientSecret and optional tokenHost
+         * If no other host is specified the free verson tokenHost is used
          */
         private credentials;
         /**
-         * The base Url of the Avola Decision api we want to use
+         * The base Url of the Avola Decision api we want to use ex https://free.api.avo.la
          */
         private baseUrl;
+        /**
+         * A tokenProvider is the instance of identityserver that is running
+         * This defaults to the free version of Avola Decision
+         */
         private tokenProvider?;
+        /**
+         * accesToken contains your bearer token to autenticate with Avola Api
+         */
         private accessToken;
         constructor(baseUrl: string, clientId: string, clientSecret: string, tokenHost?: string);
         private authenticate;
@@ -38,10 +46,14 @@ export declare namespace Avola {
         getDecisionServiceVersions(decisionServiceId: number, version: number): Promise<Array<Execution.DecisionServiceVersionDescription>>;
         /**
          * Execute a descision service version, this returns all conclusions, from all decisions in the decision service
-         * @param decisionServiceId
-         * @param version
+         * @param executionRequest
          */
         executeDecisionServiceVersion(executionRequest: Execution.ApiExecutionRequest): Promise<Execution.ExecutionResult>;
+        /**
+         * Execute a decision table. This function is only available if you are using a Free api client.
+         * @param executionRequest
+         */
+        executeDecisionFree(decisionTableId: number): Promise<Execution.ExecutionResult>;
     }
     /**
      * Settings class for our API
@@ -93,6 +105,9 @@ export declare namespace Avola {
             pairData?: Array<DecisionServiceVersionPairData>;
             listData?: Array<DecisionServiceVersionListData>;
         }
+        /**
+         * Describes the versioned businessdata
+         */
         interface DecisionServiceVersionBusinessData {
             businessDataId?: number;
             version?: number;
@@ -105,11 +120,17 @@ export declare namespace Avola {
             name?: string;
             value?: string;
         }
+        /**
+         * Describes the versioned pair
+         */
         interface DecisionServiceVersionPairData {
             pairId?: number;
             valueForTrue?: string;
             valueForFalse?: string;
         }
+        /**
+         * Describes a versioned list with versioned list items
+         */
         interface DecisionServiceVersionListData {
             listId?: number;
             items?: Array<DecisionServiceVersionListDataItem>;
@@ -120,6 +141,12 @@ export declare namespace Avola {
             value?: string;
             name?: string;
         }
+        /**
+         * This class is the execution request that the Avola Decision Api needs to execute a decision service version
+         * decisionServiceId: the id of the service version
+         * versionNumber: what version of the decision service
+         * reference: optional string reference, you can use this tas a reference to group or find back execution results
+         */
         class ApiExecutionRequest {
             decisionServiceId?: number;
             versionNumber?: number;
@@ -128,10 +155,21 @@ export declare namespace Avola {
             executionRequestMetaData?: Array<ExecutionRequestData>;
             constructor(decisionserviceid?: number, versionnumber?: number, reference?: string, executionrequestdata?: Array<ExecutionRequestData>, executionrequestmetadata?: Array<ExecutionRequestData>);
         }
+        /**
+         * Key value pair of the request data
+         * The key represents the id of the businessdata
+         * The value is the input value for execution
+         */
         class ExecutionRequestData {
             key?: number;
             value?: string;
         }
+        /**
+         * Describes the result of an execution
+         * reference: the same reference as with the request
+         * finalConclusionBusinessDataIds: this is the businessdata id of the final conclusion (use this to quickly find the top conclusion)
+         * hitConclusions: array of all the conclusions that were hit
+         */
         interface ExecutionResult {
             decisionTableId?: number;
             decisionServiceId?: number;
@@ -164,6 +202,10 @@ export declare namespace Avola {
             rowExpression?: string;
             value?: string;
             rowOrder?: number;
+        }
+        class FreeExecutionRequest {
+            decisionTableId: number;
+            constructor(tableId: number);
         }
     }
 }

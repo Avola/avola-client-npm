@@ -92,7 +92,6 @@ export namespace Avola {
                     }
                     , function (error, response, body) {
                         // parse body back to object
-                        // json.stringify to parse back
                         if (response.statusCode === 200) {
                             let settings: Settings = JSON.parse(body);
                             resolve(settings);
@@ -162,7 +161,6 @@ export namespace Avola {
                         }
                         , function (error, response, body) {
                             // parse body back to object
-                            // json.stringify to parse back
                             if (response.statusCode === 200) {
                                 let decisionserviceversions: Array<Execution.DecisionServiceVersionDescription> = JSON.parse(body);
                                 resolve(decisionserviceversions);
@@ -194,7 +192,6 @@ export namespace Avola {
                         }
                         , function (error, response, body) {
                             // parse body back to object
-                            // json.stringify to parse back
                             if (response.statusCode === 200) {
                                 let result: Execution.ExecutionResult = JSON.parse(body);
                                 resolve(result);
@@ -209,9 +206,11 @@ export namespace Avola {
          * Execute a decision table. This function is only available if you are using a Free api client.
          * @param executionRequest 
          */
-        executeDecisionFree(executionRequest: Execution.ApiExecutionRequest): Promise<Execution.ExecutionResult> {
+        executeDecisionFree(decisionTableId: number): Promise<Execution.ExecutionResult> {
             let url: string;
-            url = this.baseUrl + "/api/ApiExecution/execute";
+            url = this.baseUrl + "/api/FreeExecution/executedecisiontable";
+
+            let freereq: Execution.FreeExecutionRequest = new Execution.FreeExecutionRequest(decisionTableId);
 
             return new Promise(resolve => {
                 this.authenticate().then(() => {
@@ -222,11 +221,10 @@ export namespace Avola {
                                 "Authorization": "Bearer " + this.accessToken
                             },
                             uri: url,
-                            form: executionRequest
+                            form: freereq
                         }
                         , function (error, response, body) {
                             // parse body back to object
-                            // json.stringify to parse back
                             if (response.statusCode === 200) {
                                 let result: Execution.ExecutionResult = JSON.parse(body);
                                 resolve(result);
@@ -406,6 +404,14 @@ export namespace Avola {
             rowExpression?: string;
             value?: string;
             rowOrder?: number;
+        }
+
+        export class FreeExecutionRequest {
+            decisionTableId: number;
+
+            constructor(tableId: number) {
+                this.decisionTableId = tableId;
+            }
         }
     }
 }

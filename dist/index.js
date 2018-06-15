@@ -20,6 +20,9 @@ var Avola;
      */
     class AvolaClient {
         constructor(baseUrl, clientId, clientSecret, tokenHost) {
+            /**
+             * accesToken contains your bearer token to autenticate with Avola Api
+             */
             this.accessToken = "";
             this.baseUrl = baseUrl;
             this.credentials = {
@@ -80,7 +83,6 @@ var Avola;
                     uri: url
                 }, function (error, response, body) {
                     // parse body back to object
-                    // json.stringify to parse back
                     if (response.statusCode === 200) {
                         let settings = JSON.parse(body);
                         resolve(settings);
@@ -112,9 +114,7 @@ var Avola;
                         },
                         uri: url
                     }, function (error, response, body) {
-                        // console.log("resp", response);
                         // parse body back to object
-                        // json.stringify to parse back
                         console.log(response.statusCode);
                         if (response.statusCode === 200) {
                             let decisionservices = JSON.parse(body);
@@ -142,7 +142,6 @@ var Avola;
                         uri: url
                     }, function (error, response, body) {
                         // parse body back to object
-                        // json.stringify to parse back
                         if (response.statusCode === 200) {
                             let decisionserviceversions = JSON.parse(body);
                             resolve(decisionserviceversions);
@@ -153,8 +152,7 @@ var Avola;
         }
         /**
          * Execute a descision service version, this returns all conclusions, from all decisions in the decision service
-         * @param decisionServiceId
-         * @param version
+         * @param executionRequest
          */
         executeDecisionServiceVersion(executionRequest) {
             let url;
@@ -170,7 +168,33 @@ var Avola;
                         form: executionRequest
                     }, function (error, response, body) {
                         // parse body back to object
-                        // json.stringify to parse back
+                        if (response.statusCode === 200) {
+                            let result = JSON.parse(body);
+                            resolve(result);
+                        }
+                    });
+                });
+            });
+        }
+        /**
+         * Execute a decision table. This function is only available if you are using a Free api client.
+         * @param executionRequest
+         */
+        executeDecisionFree(decisionTableId) {
+            let url;
+            url = this.baseUrl + "/api/FreeExecution/executedecisiontable";
+            let freereq = new Execution.FreeExecutionRequest(decisionTableId);
+            return new Promise(resolve => {
+                this.authenticate().then(() => {
+                    request({
+                        method: "POST",
+                        headers: {
+                            "Authorization": "Bearer " + this.accessToken
+                        },
+                        uri: url,
+                        form: freereq
+                    }, function (error, response, body) {
+                        // parse body back to object
                         if (response.statusCode === 200) {
                             let result = JSON.parse(body);
                             resolve(result);
@@ -183,6 +207,12 @@ var Avola;
     Avola.AvolaClient = AvolaClient;
     let Execution;
     (function (Execution) {
+        /**
+         * This class is the execution request that the Avola Decision Api needs to execute a decision service version
+         * decisionServiceId: the id of the service version
+         * versionNumber: what version of the decision service
+         * reference: optional string reference, you can use this tas a reference to group or find back execution results
+         */
         class ApiExecutionRequest {
             constructor(decisionserviceid, versionnumber, reference, executionrequestdata, executionrequestmetadata) {
                 this.decisionServiceId = decisionserviceid;
@@ -193,6 +223,11 @@ var Avola;
             }
         }
         Execution.ApiExecutionRequest = ApiExecutionRequest;
+        /**
+         * Key value pair of the request data
+         * The key represents the id of the businessdata
+         * The value is the input value for execution
+         */
         class ExecutionRequestData {
         }
         Execution.ExecutionRequestData = ExecutionRequestData;
@@ -204,5 +239,11 @@ var Avola;
                 Error: 'Error'
             };
         })(ExecutionResult = Execution.ExecutionResult || (Execution.ExecutionResult = {}));
+        class FreeExecutionRequest {
+            constructor(tableId) {
+                this.decisionTableId = tableId;
+            }
+        }
+        Execution.FreeExecutionRequest = FreeExecutionRequest;
     })(Execution = Avola.Execution || (Avola.Execution = {}));
 })(Avola = exports.Avola || (exports.Avola = {}));
