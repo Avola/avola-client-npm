@@ -1,7 +1,7 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/2000px-Npm-logo.svg.png" alt="npm logo" width="150" height="50" /> [![Build Status](https://travis-ci.org/Avola/avola-client-npm.svg?branch=master)](https://travis-ci.org/Avola/avola-client-npm)
 
 # avola-client :package: 
-Avola Decision client package to execute and synchronize your decisions with an ease. This package is for any developer looking for an easy solution to connect Avola Decision to their software. Also check out our other packages and definitely [read our api documentation](https://docs.avo.la) if something is not clear.
+Avola Decision client package to execute and synchronize your decisions with an ease. This package is for any developer looking for an easy solution to connect Avola Decision with their software. Also check out our other packages and definitely [read our api documentation](https://docs.avo.la) if something is not clear.
 
 ## Requirements
 * A valid Avola Decision account - don't have an account? Find out the very basics [by creating a free account](https://free.avo.la)
@@ -12,9 +12,10 @@ Avola Decision client package to execute and synchronize your decisions with an 
 ## Installation 
 ```sh
 npm install avola-client --save
+```
+todo:
 yarn add avola-client
 bower install avola-client --save
-```
 ## Usage
 ### Javascript
 ```javascript

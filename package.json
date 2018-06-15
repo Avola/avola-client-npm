@@ -1,5 +1,5 @@
 {
-  "name": "avola-client",
+  "name": "@avoladecision/avola-client",
   "version": "1.0.0",
   "description": "Avola Decision client to execute and synchronize your decisions",
   "main": "dist/index.js",
