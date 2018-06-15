@@ -206,11 +206,9 @@ export namespace Avola {
          * Execute a decision table. This function is only available if you are using a Free api client.
          * @param executionRequest 
          */
-        executeDecisionFree(decisionTableId: number): Promise<Execution.ExecutionResult> {
+        executeDecisionFree(freerequest: Execution.FreeExecutionRequest): Promise<Execution.ExecutionResult> {
             let url: string;
             url = this.baseUrl + "/api/FreeExecution/executedecisiontable";
-
-            let freereq: Execution.FreeExecutionRequest = new Execution.FreeExecutionRequest(decisionTableId);
 
             return new Promise(resolve => {
                 this.authenticate().then(() => {
@@ -221,7 +219,7 @@ export namespace Avola {
                                 "Authorization": "Bearer " + this.accessToken
                             },
                             uri: url,
-                            form: freereq
+                            form: freerequest
                         }
                         , function (error, response, body) {
                             // parse body back to object
@@ -406,10 +404,11 @@ export namespace Avola {
             rowOrder?: number;
         }
 
-        export class FreeExecutionRequest {
+        export class FreeExecutionRequest extends ApiExecutionRequest {
             decisionTableId: number;
 
             constructor(tableId: number) {
+                super();
                 this.decisionTableId = tableId;
             }
         }
