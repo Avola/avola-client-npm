@@ -19,7 +19,7 @@ bower install avola-client --save
 ## Usage
 ### Javascript
 ```javascript
-var avola = require('avola').Avola;
+var Avola = require('@avoladecision/avola-client');
 
 // Create client with base url of the Avola Decision api and your apikey
 var avolaclient = new avola.AvolaClient('https://free.api.avo.la', 'replacewithclientid', 
@@ -33,7 +33,7 @@ client.getSettings().then((settings) => {
 
 ### TypeScript
 ```typescript
-import { AvolaClient } from 'avola';
+import { AvolaClient } from '@avoladecision/avola-client';
 
 let avolaclient = new Avolaclient('https://free.api.avo.la', 'replacewithclientid',
                                               'replacewithclientsecret', 'optionaltokenhost');

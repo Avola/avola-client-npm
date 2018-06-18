@@ -58,83 +58,83 @@ export interface Settings {
     /**
      * The subdomain of the organisation of the api
      */
-    organisation?: string;
+    Organisation?: string;
     /**
      * The environment of the API this can be: App, Test or Prod
      */
-    environment?: string;
+    Environment?: string;
     /**
      * The apitype can be Full or Execution
      */
-    apiType?: string;
+    ApiType?: string;
     /**
      * The authority is the url of the identityserver instance that sign tokens for authentication in our Api
      */
-    authority?: string;
+    Authority?: string;
     /**
      * The tokenendpoint is the url where you can request tokens with your client/secret
      */
-    tokenEndpoint?: string;
+    TokenEndpoint?: string;
 }
 /**
  * Object that describes properties about a decision service
  */
 export interface DecisionServiceDescription {
-    decisionServiceId?: number;
-    name?: string;
-    versions?: Array<DecisionServiceVersionDescription>;
+    DecisionServiceId?: number;
+    Name?: string;
+    Versions?: Array<DecisionServiceVersionDescription>;
 }
 /**
  * Object that describes properties about a decision service version
  */
 export interface DecisionServiceVersionDescription {
-    decisionServiceId?: number;
-    name?: string;
-    decisionName?: string;
-    decisionServiceVersionId?: number;
-    versionNumber?: number;
-    inputData?: Array<DecisionServiceVersionBusinessData>;
-    outputData?: Array<DecisionServiceVersionBusinessData>;
-    traceData?: Array<DecisionServiceVersionBusinessData>;
-    metaData?: Array<DecisionServiceVersionBusinessData>;
-    pairData?: Array<DecisionServiceVersionPairData>;
-    listData?: Array<DecisionServiceVersionListData>;
+    DecisionServiceId?: number;
+    Name?: string;
+    DecisionName?: string;
+    DecisionServiceVersionId?: number;
+    VersionNumber?: number;
+    InputData?: Array<DecisionServiceVersionBusinessData>;
+    OutputData?: Array<DecisionServiceVersionBusinessData>;
+    TraceData?: Array<DecisionServiceVersionBusinessData>;
+    MetaData?: Array<DecisionServiceVersionBusinessData>;
+    PairData?: Array<DecisionServiceVersionPairData>;
+    ListData?: Array<DecisionServiceVersionListData>;
 }
 /**
  * Describes the versioned businessdata
  */
 export interface DecisionServiceVersionBusinessData {
-    businessDataId?: number;
-    version?: number;
-    name?: string;
-    type?: string;
-    question?: string;
-    properties?: Array<BusinessDataProperty>;
+    BusinessDataId?: number;
+    Version?: number;
+    Name?: string;
+    Type?: string;
+    Question?: string;
+    Properties?: Array<BusinessDataProperty>;
 }
 export interface BusinessDataProperty {
-    name?: string;
-    value?: string;
+    Name?: string;
+    Value?: string;
 }
 /**
  * Describes the versioned pair
  */
 export interface DecisionServiceVersionPairData {
-    pairId?: number;
-    valueForTrue?: string;
-    valueForFalse?: string;
+    PairId?: number;
+    ValueForTrue?: string;
+    ValueForFalse?: string;
 }
 /**
  * Describes a versioned list with versioned list items
  */
 export interface DecisionServiceVersionListData {
-    listId?: number;
-    items?: Array<DecisionServiceVersionListDataItem>;
+    ListId?: number;
+    Items?: Array<DecisionServiceVersionListDataItem>;
 }
 export interface DecisionServiceVersionListDataItem {
-    id?: number;
-    order?: number;
-    value?: string;
-    name?: string;
+    Id?: number;
+    Order?: number;
+    Value?: string;
+    Name?: string;
 }
 /**
  * This class is the execution request that the Avola Decision Api needs to execute a decision service version
@@ -143,11 +143,11 @@ export interface DecisionServiceVersionListDataItem {
  * reference: optional string reference, you can use this tas a reference to group or find back execution results
  */
 export declare class ApiExecutionRequest {
-    decisionServiceId?: number;
-    versionNumber?: number;
-    reference?: string;
-    executionRequestData?: Array<ExecutionRequestData>;
-    executionRequestMetaData?: Array<ExecutionRequestData>;
+    DecisionServiceId?: number;
+    VersionNumber?: number;
+    Reference?: string;
+    ExecutionRequestData?: Array<ExecutionRequestData>;
+    ExecutionRequestMetaData?: Array<ExecutionRequestData>;
     constructor(decisionserviceid?: number, versionnumber?: number, reference?: string, executionrequestdata?: Array<ExecutionRequestData>, executionrequestmetadata?: Array<ExecutionRequestData>);
 }
 /**
@@ -156,8 +156,8 @@ export declare class ApiExecutionRequest {
  * The value is the input value for execution
  */
 export declare class ExecutionRequestData {
-    key?: number;
-    value?: string;
+    Key?: number;
+    Value?: string;
     constructor(key?: number, value?: string);
 }
 /**
@@ -167,13 +167,13 @@ export declare class ExecutionRequestData {
  * hitConclusions: array of all the conclusions that were hit
  */
 export interface ExecutionResult {
-    decisionTableId?: number;
-    decisionServiceId?: number;
-    reference?: string;
-    finalConclusionBusinessDataIds?: Array<number>;
-    conclusionValueType?: ExecutionResult.ConclusionValueTypeEnum;
-    hitConclusions?: Array<HitConclusion>;
-    errors?: Array<ErrorMessage>;
+    DecisionTableId?: number;
+    DecisionServiceId?: number;
+    Reference?: string;
+    FinalConclusionBusinessDataIds?: Array<number>;
+    ConclusionValueType?: ExecutionResult.ConclusionValueTypeEnum;
+    HitConclusions?: Array<HitConclusion>;
+    Errors?: Array<ErrorMessage>;
 }
 export declare namespace ExecutionResult {
     type ConclusionValueTypeEnum = 'Success' | 'NoConclusion' | 'Error';
@@ -184,22 +184,22 @@ export declare namespace ExecutionResult {
     };
 }
 export interface ErrorMessage {
-    message?: string;
-    code?: string;
-    values?: Array<string>;
+    Message?: string;
+    Code?: string;
+    Values?: Array<string>;
 }
 export interface HitConclusion {
-    conclusionName?: string;
-    conclusionId?: number;
-    decisionTableName?: string;
-    decisionTableId?: number;
-    businessDataId?: number;
-    rowId?: number;
-    rowExpression?: string;
-    value?: string;
-    rowOrder?: number;
+    ConclusionName?: string;
+    ConclusionId?: number;
+    DecisionTableName?: string;
+    DecisionTableId?: number;
+    BusinessDataId?: number;
+    RowId?: number;
+    RowExpression?: string;
+    Value?: string;
+    RowOrder?: number;
 }
 export declare class FreeExecutionRequest extends ApiExecutionRequest {
-    decisionTableId: number;
+    DecisionTableId: number;
     constructor(tableId: number);
 }

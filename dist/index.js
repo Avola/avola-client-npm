@@ -207,11 +207,11 @@ exports.AvolaClient = AvolaClient;
  */
 class ApiExecutionRequest {
     constructor(decisionserviceid, versionnumber, reference, executionrequestdata, executionrequestmetadata) {
-        this.decisionServiceId = decisionserviceid;
-        this.versionNumber = versionnumber;
-        this.reference = reference;
-        this.executionRequestData = executionrequestdata;
-        this.executionRequestMetaData = executionrequestmetadata;
+        this.DecisionServiceId = decisionserviceid;
+        this.VersionNumber = versionnumber;
+        this.Reference = reference;
+        this.ExecutionRequestData = executionrequestdata;
+        this.ExecutionRequestMetaData = executionrequestmetadata;
     }
 }
 exports.ApiExecutionRequest = ApiExecutionRequest;
@@ -222,8 +222,8 @@ exports.ApiExecutionRequest = ApiExecutionRequest;
  */
 class ExecutionRequestData {
     constructor(key, value) {
-        this.key = key;
-        this.value = value;
+        this.Key = key;
+        this.Value = value;
     }
 }
 exports.ExecutionRequestData = ExecutionRequestData;
@@ -238,7 +238,7 @@ var ExecutionResult;
 class FreeExecutionRequest extends ApiExecutionRequest {
     constructor(tableId) {
         super();
-        this.decisionTableId = tableId;
+        this.DecisionTableId = tableId;
     }
 }
 exports.FreeExecutionRequest = FreeExecutionRequest;
