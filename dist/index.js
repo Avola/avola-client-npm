@@ -180,10 +180,9 @@ var Avola;
          * Execute a decision table. This function is only available if you are using a Free api client.
          * @param executionRequest
          */
-        executeDecisionFree(decisionTableId) {
+        executeDecisionFree(freerequest) {
             let url;
             url = this.baseUrl + "/api/FreeExecution/executedecisiontable";
-            let freereq = new Execution.FreeExecutionRequest(decisionTableId);
             return new Promise(resolve => {
                 this.authenticate().then(() => {
                     request({
@@ -192,7 +191,7 @@ var Avola;
                             "Authorization": "Bearer " + this.accessToken
                         },
                         uri: url,
-                        form: freereq
+                        form: freerequest
                     }, function (error, response, body) {
                         // parse body back to object
                         if (response.statusCode === 200) {
@@ -229,6 +228,10 @@ var Avola;
          * The value is the input value for execution
          */
         class ExecutionRequestData {
+            constructor(key, value) {
+                this.key = key;
+                this.value = value;
+            }
         }
         Execution.ExecutionRequestData = ExecutionRequestData;
         let ExecutionResult;
@@ -239,8 +242,9 @@ var Avola;
                 Error: 'Error'
             };
         })(ExecutionResult = Execution.ExecutionResult || (Execution.ExecutionResult = {}));
-        class FreeExecutionRequest {
+        class FreeExecutionRequest extends ApiExecutionRequest {
             constructor(tableId) {
+                super();
                 this.decisionTableId = tableId;
             }
         }

@@ -53,7 +53,7 @@ export declare namespace Avola {
          * Execute a decision table. This function is only available if you are using a Free api client.
          * @param executionRequest
          */
-        executeDecisionFree(decisionTableId: number): Promise<Execution.ExecutionResult>;
+        executeDecisionFree(freerequest: Execution.FreeExecutionRequest): Promise<Execution.ExecutionResult>;
     }
     /**
      * Settings class for our API
@@ -163,6 +163,7 @@ export declare namespace Avola {
         class ExecutionRequestData {
             key?: number;
             value?: string;
+            constructor(key?: number, value?: string);
         }
         /**
          * Describes the result of an execution
@@ -203,7 +204,7 @@ export declare namespace Avola {
             value?: string;
             rowOrder?: number;
         }
-        class FreeExecutionRequest {
+        class FreeExecutionRequest extends ApiExecutionRequest {
             decisionTableId: number;
             constructor(tableId: number);
         }

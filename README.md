@@ -11,7 +11,7 @@ Avola Decision client package to execute and synchronize your decisions with an 
 
 ## Installation 
 ```sh
-npm install avola-client --save
+npm install @avoladecision/avola-client --save
 ```
 todo:
 yarn add avola-client

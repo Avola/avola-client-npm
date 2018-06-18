@@ -359,6 +359,11 @@ export namespace Avola {
         export class ExecutionRequestData {
             key?: number;
             value?: string;
+
+            constructor (key?: number, value?: string) {
+                this.key = key;
+                this.value = value;
+            }
         }
 
         /**
