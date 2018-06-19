@@ -131,7 +131,7 @@ export class AvolaClient {
                         }
                     }
                 );
-            })
+            });
         });
     }
 
@@ -163,7 +163,7 @@ export class AvolaClient {
                         }
                     }
                 );
-            })
+            });
         });
     }
 
