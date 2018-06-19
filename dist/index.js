@@ -124,7 +124,7 @@ class AvolaClient {
      * @param decisionServiceId
      * @param version
      */
-    getDecisionServiceVersions(decisionServiceId, version) {
+    getDecisionServiceVersion(decisionServiceId, version) {
         let url;
         url = this.baseUrl + "/api/ApiExecution/decisions/" + decisionServiceId + "/" + version;
         return new Promise(resolve => {

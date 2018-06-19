@@ -140,8 +140,8 @@ export class AvolaClient {
      * @param decisionServiceId 
      * @param version 
      */
-    getDecisionServiceVersions(decisionServiceId: number, version: number):
-        Promise<Array<DecisionServiceVersionDescription>> {
+    getDecisionServiceVersion(decisionServiceId: number, version: number):
+        Promise<DecisionServiceVersionDescription> {
         let url: string;
         url = this.baseUrl + "/api/ApiExecution/decisions/" + decisionServiceId + "/" + version;
 
@@ -158,7 +158,7 @@ export class AvolaClient {
                     , function (error, response, body) {
                         // parse body back to object
                         if (response.statusCode === 200) {
-                            let decisionserviceversions: Array<DecisionServiceVersionDescription> = JSON.parse(body);
+                            let decisionserviceversions: DecisionServiceVersionDescription = JSON.parse(body);
                             resolve(decisionserviceversions);
                         }
                     }

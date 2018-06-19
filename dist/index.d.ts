@@ -39,7 +39,7 @@ export declare class AvolaClient {
      * @param decisionServiceId
      * @param version
      */
-    getDecisionServiceVersions(decisionServiceId: number, version: number): Promise<Array<DecisionServiceVersionDescription>>;
+    getDecisionServiceVersion(decisionServiceId: number, version: number): Promise<DecisionServiceVersionDescription>;
     /**
      * Execute a descision service version, this returns all conclusions, from all decisions in the decision service
      * @param executionRequest
